@@ -101,15 +101,23 @@
     </div>
   </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- WHAT IS CROSS ORIGIN & INTEGRITY CHECK??
+    Cores - Only want your site to load what you have in your server, but when you add APIs, you make requests to other sites, and you 
+    Integrity - Making a call to the CDN where the day JS is hosted, when making that request, they want to make sure that is coming from someone who wants to use the correct link
+   -->
 
-  <script src="path/to/dayjs/dayjs.min.js"></script>
-  <script>
-    dayjs().format()
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    crossorigin = "anonymous"
   </script>
 
+  <!-- <script src="path/to/dayjs/dayjs.min.js"></script>
+   <script>
+    dayjs().format()
+  </script>  DO I NEED THIS OR IS WHAT I HAVE BELOW WHAT'S SUPPOSED TO BE HERE?? AND IS IT THE CORRECT URL??-->
+
   <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
-    integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
+    integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous">
+    </script>
 
   <script src="script.js"></script>
   <!-- console.log(localStorage) -->
