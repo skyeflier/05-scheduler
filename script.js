@@ -12,7 +12,9 @@
 var today = dayjs().format('DD-MM-YYYY HH:mm');
 $('#currentDay').text(today);
 
-var currentTime = dayjs().format('HH');
+var currentTime = dayjs('HH');
+
+var scheduleTime = document.querySelector("#hour");
 
 $(function () { // OLD WAY $(document).ready(function(){
   $(".saveBtn").click(function () {
@@ -23,37 +25,30 @@ $(function () { // OLD WAY $(document).ready(function(){
     localStorage.setItem(time, text).JSON.stringify() //time would be the keyName because that's something we have control over, and so we can pull that information from localStorage
 
   });
+})
+
+// localStorage.getItem(time).JSON.parse() PUT THIS WHEN REFRESHING THE
+
+//use ParseInt
+
+// USING THE DIV CLASS, WE CAN ADD DIFFERENT COLORS. GET TIME BLOCKS, LOOP THROUGH THEM, IF HOUR = TODAY (CURRENT HOUR) THEN DISPLAY CURRENT TIME CLASS FROM CSS
+
+$.each()
+if { currentTime === hour} {
+  $("textarea").removeClass('.past')
+  $("textarea").removeClass('.future')
+  $("textarea").addClass('.present')
+
+} else { currentTime < hour } {
+  $("textarea").removeClass('.past')
+  $("textarea").removeClass('.present')
+  $("textarea").addClass('.future')
+
+} else { currentTime > hour } {
+  $("textarea").removeClass('.present')
+  $("textarea").removeClass('.future')
+  $("textarea").addClass('.past')
 }
-
-  // localStorage.getItem(time).JSON.parse() PUT THIS WHEN REFRESHING THE
-
-  //use ParseInt
-
-  // USING THE DIV CLASS, WE CAN ADD DIFFERENT COLORS. GET TIME BLOCKS, LOOP THROUGH THEM, IF HOUR = TODAY (CURRENT HOUR) THEN DISPLAY CURRENT TIME CLASS FROM CSS
-  var time = {
-
-}
-$.each() {
-  if (currentTime === hour) {
-    $("textarea").removeClass('.past')
-    $("textarea").removeClass('.future')
-    $("textarea").addClass('.present')
-
-  } else {
-    (currentTime < hour) {
-      $("textarea").removeClass('.past')
-      $("textarea").removeClass('.present')
-      $("textarea").addClass('.future')
-
-    } else {
-      (currentTime > hour) {
-        $("textarea").removeClass('.present')
-        $("textarea").removeClass('.future')
-        $("textarea").addClass('.past')
-      }
-    }
-  };
-
   //LOOK UP HOW TO GET HOUR FROM JQUERY 
 
 
