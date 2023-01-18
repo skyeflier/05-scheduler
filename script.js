@@ -1,22 +1,17 @@
-// Wrap all code that interacts with the DOM in a call to jQuery to ensure that
-// the code isn't run until the browser has finished rendering all the elements
-// in the html.
-
-// TODO: Add a listener for click events on the save button. This code should
-// use the id in the containing time-block as a key to save the user input in
-// local storage. HINT: What does `this` reference in the click listener
-// function? How can DOM traversal be used to get the "hour-x" id of the
-// time-block containing the button that was clicked? How might the id be
-// useful when saving the description in local storage?
-
 var today = dayjs().format('DD-MM-YYYY HH:mm');
 $('#currentDay').text(today);
 
 var currentTime = dayjs('HH');
 
-var scheduleTime = document.querySelector("#hour");
+//IS THIS ACTUALLY PULLING thisHour FROM HTML?? HOW DO YOU DO IT IF IT'S NOT A CLASS/ID?
+// var scheduleTime = document.querySelectorAll("data-thisHour");
+// console.log(scheduleTime)
 
-$(function () { // OLD WAY $(document).ready(function(){
+// ETHAN COULD I DO THE BLEOW??
+var scheduleTime = document.querySelectorAll(".time-block").child(".textarea").attr("id");
+console.log(scheduleTime)
+
+$(function () {
   $(".saveBtn").click(function () {
     var time = $(this).parent().attr("id"); // need evaulation for military time and compare numbers for time
     var text = $(this).siblings(".description").val();
@@ -27,30 +22,40 @@ $(function () { // OLD WAY $(document).ready(function(){
   });
 })
 
+// LEFT HERE - WORKING ON GETTING THIS TO WORK. BUT NOT SURE WHAT'S WRONG WITH thisHour?
+var currentHour = $(this).dataset.thisHour
+$("textarea").each(function () { // the ("textarea" generates the array
+
+
+  if (currentTime === scheduleTime) {
+    $(this).removeClass("past").removeClass("future").addClass("present");
+
+  } else if (currentTime < scheduleTime) {
+    $(this).removeClass("past").removeClass("present").addClass("future");
+
+  } else if (currentTime > scheduleTime) {
+    $(this).removeClass("present").removeClass("future").addClass("past");
+  }
+});
+
+// USING THE DIV CLASS, WE CAN ADD DIFFERENT COLORS. GET TIME BLOCKS, LOOP THROUGH THEM, IF HOUR = TODAY (CURRENT HOUR) THEN DISPLAY CURRENT TIME CLASS FROM CSS
+
 // localStorage.getItem(time).JSON.parse() PUT THIS WHEN REFRESHING THE
 
 //use ParseInt
 
-// USING THE DIV CLASS, WE CAN ADD DIFFERENT COLORS. GET TIME BLOCKS, LOOP THROUGH THEM, IF HOUR = TODAY (CURRENT HOUR) THEN DISPLAY CURRENT TIME CLASS FROM CSS
+  //LOOK UP HOW TO GET HOUR FROM JQUERY
 
-$.each()
-if { currentTime === hour} {
-  $("textarea").removeClass('.past')
-  $("textarea").removeClass('.future')
-  $("textarea").addClass('.present')
+// Wrap all code that interacts with the DOM in a call to jQuery to ensure that
+// the code isn't run until the browser has finished rendering all the elements
+// in the html.
 
-} else { currentTime < hour } {
-  $("textarea").removeClass('.past')
-  $("textarea").removeClass('.present')
-  $("textarea").addClass('.future')
-
-} else { currentTime > hour } {
-  $("textarea").removeClass('.present')
-  $("textarea").removeClass('.future')
-  $("textarea").addClass('.past')
-}
-  //LOOK UP HOW TO GET HOUR FROM JQUERY 
-
+// TODO: Add a listener for click events on the save button. This code should
+// use the id in the containing time-block as a key to save the user input in
+// local storage. HINT: What does `this` reference in the click listener
+// function? How can DOM traversal be used to get the "hour-x" id of the
+// time-block containing the button that was clicked? How might the id be
+// useful when saving the description in local storage?
 
   // TODO: Add code to apply the past, present, or future class to each time
   // block by comparing the id to the current hour. HINTS: How can the id
@@ -67,6 +72,5 @@ if { currentTime === hour} {
 
   // TODO: Add code to display the current date in the header of the page.
 
-});
 
  // $('div.time-block div;even').css('color','light grey') TRYING TO MAKE EVERY OTHER BLOCK    A DIFFERENT COLOR GREY
