@@ -4,24 +4,29 @@ $('#currentDay').text(today);
 var newDate = new Date()
 currentTime = newDate.getHours() // WHY DOES THIS NOT NEED A VAR =
 // console.log(typeof currentTime); // NUMBER
-console.log(currentTime)
+// console.log(currentTime)
 
 $(function () {
   $(".saveBtn").click(function () {
     var time = $(this).parent().attr("id"); // need evaulation for military time and compare numbers for time
+    console.log(time); // STRING
     var text = $(this).siblings(".description").val();
-    // console.log(text);
+    console.log(text);
+    // localStorage.setItem(time, text).JSON.stringify(); //time would be the keyName because that's something we have control over, and so we can pull that information from localStorage
+    // localStorage.getItem(time, text).JSON.parse();
 
-    localStorage.setItem(time, text).JSON.stringify() //time would be the keyName because that's something we have control over, and so we can pull that information from localStorage
+    localStorage.setItem(('time'), JSON.stringify(time)); //time would be the keyName because that's something we have control over, and so we can pull that information from localStorage
+    var practiceTime = localStorage.getItem('time');
+    console.log('practiceTime: ', JSON.parse(practiceTime));
 
   });
 })
 
 $("textarea").each(function () { // the "textarea" generates the array
-  let scheduleTime = this.dataset.thishour
+  let scheduleTime = parseInt(this.dataset.thishour)
   // console.log(typeof scheduleTime); // STRING need to parse int to turn into a number to compare with time
   // console.log(this.dataset) // This informed us the format of thishour was wrong and needed a lowercase 'h'
-  console.log(parseInt(scheduleTime));
+  // console.log(parseInt(scheduleTime)); CAN DELETE
 
   if (currentTime === scheduleTime) {
     $(this).removeClass("past").removeClass("future").addClass("present");
@@ -35,13 +40,7 @@ $("textarea").each(function () { // the "textarea" generates the array
 
 });
 
-// USING THE DIV CLASS, WE CAN ADD DIFFERENT COLORS. GET TIME BLOCKS, LOOP THROUGH THEM, IF HOUR = TODAY (CURRENT HOUR) THEN DISPLAY CURRENT TIME CLASS FROM CSS
 
-// localStorage.getItem(time).JSON.parse() PUT THIS WHEN REFRESHING THE
-
-//use ParseInt
-
-  //LOOK UP HOW TO GET HOUR FROM JQUERY
 
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
