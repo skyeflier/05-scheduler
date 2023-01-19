@@ -1,5 +1,5 @@
-# 05-scheduler
-# <Slay the Day!>
+
+# Slay the Day!
 
 ## Description
 
@@ -19,7 +19,7 @@ If your README is long, add a table of contents to make it easy for users to fin
 - [Features](#features)
 
 ## Installation
-Just open the link provided here: 
+Just open the link provided here: https://skyeflier.github.io/05-slay-the-day/
 
 ## Usage
 Simply type your schedule in the grey, teal and gold boxes in the center, and click the dusty rose button to the right to save your schedule for each hour. Make sure to click the save button, because if you forget, you will lose the schedule you worked hard to build out!
