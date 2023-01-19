@@ -1,5 +1,5 @@
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-size: 16px;
 }
 
@@ -40,7 +40,7 @@ textarea {
 }
 
 .present {
-  background-color: orchid;
+  background-color: goldenrod;
   color: white;
 }
 
@@ -53,7 +53,7 @@ textarea {
   border-left: 1px solid black;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
-  background-color: #06aed5;
+  background-color: rosybrown;
   color: white;
 }
 

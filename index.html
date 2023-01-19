@@ -17,31 +17,20 @@
 
 <body>
   <header class="p-5 mb-4">
-    <h1 class="display-3 text-center">Work Day Scheduler</h1>
-    <p class="lead text-center">A simple calendar app for scheduling your work day</p>
+    <h1 class="display-3 text-center">Slay the Day</h1>
+    <p class="lead text-center">Utilize this sweet & simple minimalist </p>
     <p id="currentDay" class="lead"></p>
   </header>
   <div class="container-fluid px-5">
-    <!-- Use class for "past", "present", and "future" to apply styles to the
-        time-block divs accordingly. The javascript will need to do this by
-        adding/removing these classes on each div by comparing the hour in the
-        id to the current hour. The html provided below is meant to be an example
-        demonstrating how the css provided can be leveraged to create the
-        desired layout and colors. The html below should be removed or updated
-        in the finished product. Remember to delete this comment once the
-        code is implemented.
-        -->
 
-    <!-- Example of a past time block. The "past" class adds a gray background color. -->
     <div id="9" class="row time-block">
       <div class="col-2 col-md-1 hour text-center py-3">09:00</div>
-      <textarea class="col-8 col-md-10 description" data-thisHour="09" rows="3"> </textarea>
+      <textarea class="col-8 col-md-10 description" data-thisHour="0" rows="3"> </textarea>
       <button class="btn saveBtn col-2 col-md-1" aria-label="save">
         <i class="fas fa-save" aria-hidden="true"></i>
       </button>
     </div>
 
-    <!-- Example of a present time block. The "present" class adds a red background color. -->
     <div id="10" class="row time-block">
       <div class="col-2 col-md-1 hour text-center py-3">10:00</div>
       <textarea class="col-8 col-md-10 description" data-thisHour="10" rows="3"> </textarea>
@@ -50,7 +39,6 @@
       </button>
     </div>
 
-    <!-- Example of a future time block. The "future" class adds a green background color. -->
     <div id="11" class="row time-block">
       <div class="col-2 col-md-1 hour text-center py-3">11:00</div>
       <textarea class="col-8 col-md-10 description" data-thisHour="11" rows="3"> </textarea>
@@ -109,16 +97,10 @@
     crossorigin = "anonymous"
   </script>
 
-  <!-- <script src="path/to/dayjs/dayjs.min.js"></script>
-   <script>
-    dayjs().format()
-  </script>  DO I NEED THIS OR IS WHAT I HAVE BELOW WHAT'S SUPPOSED TO BE HERE?? AND IS IT THE CORRECT URL??-->
-
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
     integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
   <script src="script.js"></script>
-  <!-- console.log(localStorage) -->
 </body>
 
 </html>
