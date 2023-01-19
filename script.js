@@ -4,6 +4,7 @@ $('#currentDay').text(today);
 var newDate = new Date()
 currentTime = newDate.getHours() // WHY DOES THIS NOT NEED A VAR =
 // console.log(typeof currentTime); // NUMBER
+console.log(currentTime)
 
 $(function () {
   $(".saveBtn").click(function () {
