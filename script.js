@@ -17,8 +17,9 @@ $(function () {
 })
 
 $("textarea").each(function () { // the "textarea" generates the array
-  let scheduleTime = this.dataset.thisHour
-  // console.log(typeof scheduleTime); // STRING 
+  let scheduleTime = this.dataset.thishour
+  // console.log(typeof scheduleTime); // STRING need to parse int to turn into a number to compare with time
+  // console.log(this.dataset) // This informed us the format of thishour was wrong and needed a lowercase 'h'
   console.log(parseInt(scheduleTime));
 
   if (currentTime === scheduleTime) {
