@@ -1,31 +1,25 @@
 var today = dayjs().format('DD-MM-YYYY HH:mm');
 $('#currentDay').text(today);
 
-var currentTime = dayjs('HH');
-
-//IS THIS ACTUALLY PULLING thisHour FROM HTML?? HOW DO YOU DO IT IF IT'S NOT A CLASS/ID?
-// var scheduleTime = document.querySelectorAll("data-thisHour");
-// console.log(scheduleTime)
-
-// ETHAN COULD I DO THE BLEOW??
-var scheduleTime = document.querySelectorAll(".time-block").child(".textarea").attr("id");
-console.log(scheduleTime)
+var newDate = new Date()
+currentTime = newDate.getHours() // WHY DOES THIS NOT NEED A VAR =
+// console.log(typeof currentTime); // NUMBER
 
 $(function () {
   $(".saveBtn").click(function () {
     var time = $(this).parent().attr("id"); // need evaulation for military time and compare numbers for time
     var text = $(this).siblings(".description").val();
-    console.log(text);
+    // console.log(text);
 
     localStorage.setItem(time, text).JSON.stringify() //time would be the keyName because that's something we have control over, and so we can pull that information from localStorage
 
   });
 })
 
-// LEFT HERE - WORKING ON GETTING THIS TO WORK. BUT NOT SURE WHAT'S WRONG WITH thisHour?
-var currentHour = $(this).dataset.thisHour
-$("textarea").each(function () { // the ("textarea" generates the array
-
+$("textarea").each(function () { // the "textarea" generates the array
+  let scheduleTime = this.dataset.thisHour
+  // console.log(typeof scheduleTime); // STRING 
+  console.log(parseInt(scheduleTime));
 
   if (currentTime === scheduleTime) {
     $(this).removeClass("past").removeClass("future").addClass("present");
@@ -36,6 +30,7 @@ $("textarea").each(function () { // the ("textarea" generates the array
   } else if (currentTime > scheduleTime) {
     $(this).removeClass("present").removeClass("future").addClass("past");
   }
+
 });
 
 // USING THE DIV CLASS, WE CAN ADD DIFFERENT COLORS. GET TIME BLOCKS, LOOP THROUGH THEM, IF HOUR = TODAY (CURRENT HOUR) THEN DISPLAY CURRENT TIME CLASS FROM CSS
@@ -63,14 +58,10 @@ $("textarea").each(function () { // the ("textarea" generates the array
   // past, present, and future classes? How can Day.js be used to get the
   // current hour in 24-hour time?
 
-
-
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
 
-
   // TODO: Add code to display the current date in the header of the page.
-
 
  // $('div.time-block div;even').css('color','light grey') TRYING TO MAKE EVERY OTHER BLOCK    A DIFFERENT COLOR GREY
