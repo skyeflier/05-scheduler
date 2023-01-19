@@ -11,14 +11,10 @@ $(function () {
     var time = $(this).parent().attr("id"); // need evaulation for military time and compare numbers for time
     console.log(time); // STRING
     var text = $(this).siblings(".description").val();
-    console.log(text);
-    // localStorage.setItem(time, text).JSON.stringify(); //time would be the keyName because that's something we have control over, and so we can pull that information from localStorage
-    // localStorage.getItem(time, text).JSON.parse();
+    // console.log(text);
 
-    localStorage.setItem(('time'), JSON.stringify(time)); //time would be the keyName because that's something we have control over, and so we can pull that information from localStorage
-    var practiceTime = localStorage.getItem('time');
-    console.log('practiceTime: ', JSON.parse(practiceTime));
-
+    localStorage.setItem(time, text).JSON.stringify(); //time would be the keyName because that's something we have control over, and so we can pull that information from localStorage
+    localStorage.getItem(time, text).JSON.parse();
   });
 })
 
